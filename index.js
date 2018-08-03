@@ -29,7 +29,7 @@ function createIssue() {
   const body = document.getElementById("body").value;
 
   fetch(`https://api.github.com/repos/${myRepo}/issues`, {
-    method: 'POST',
+    method: 'post',
     title: title,
     body: body,
     headers: {

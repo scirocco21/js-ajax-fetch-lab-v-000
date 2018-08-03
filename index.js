@@ -1,4 +1,4 @@
-
+const baseUrl = 'https://api.github.com/'
 const repo = 'scirocco21/js-ajax-fetch-lab-v-000'
 
 function forkRepo() {

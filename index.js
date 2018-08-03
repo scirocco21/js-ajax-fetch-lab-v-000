@@ -11,8 +11,8 @@ function forkRepo() {
   }).then(res => res.json()).then(json => showForkedRepo)
 }
 
-function showForkedRepo(res) {
-  $('results').html(`<a href="${res.html_url}">${res.full_name}</a>`)
+function showForkedRepo(json) {
+  $('results').html(`<a href="${json.html_url}">${res.full_name}</a>`)
 }
 function getIssues() {
   fetch('https://api.github.com/repos/${repo}/issues')

@@ -1,25 +1,27 @@
-const repo = 'scirocco21/js-ajax-fetch-lab-v-000'
+const baseUrl = 'https://api.github.com'
+const myRepo = 'scirocco21/javascript-fetch-lab'
 
 function forkRepo() {
-  const learnRepo = 'learn-co-curriculum/javascript-fetch-lab'
-  fetch('https://api.github.com/repos/${learnRepo}/forks', {
-    method: 'POST',
+  const learnRepo = "learn-co-curriculum/javascript-fetch-lab"
+  fetch(`${baseUrl}/repos/${learnRepo}/forks`, {
+    method: 'post',
     headers: {
       Authorization: `token ${getToken()}`
     }
   }).then(res => res.json()).then(json => showForkedRepo)
 }
 
-function showForkedRepo(res) {
-  $('results').html(`<a href="${res.html_url}">${res.full_name}</a>`)
-}
-function getIssues() {
-  fetch('https://api.github.com/repos/${repo}/issues')
-  .then(res => res.json())
-  .then(showIssues);
+function showForkedRepo(json) {
+  $('results').html(`<a href="${json.html_url}">${json.full_name}</a>`)
 }
 
-function showIssues(res) {
+function getIssues() {
+  fetch(`https://api.github.com/repos/${myRepo}/issues`)
+  .then(res => res.json())
+  .then(json => showIssues(json));
+}
+
+function showIssues(json) {
   $("#issues").html(res);
 }
 
@@ -27,8 +29,8 @@ function createIssue() {
   const title = document.getElementById("title").value;
   const body = document.getElementById("body").value;
 
-  fetch('https://api.github.com/repos/${repo}/issues', {
-    method: 'POST',
+  fetch(`https://api.github.com/repos/${myRepo}/issues`, {
+    method: 'post',
     title: title,
     body: body,
     headers: {

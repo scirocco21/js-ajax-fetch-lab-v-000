@@ -1,8 +1,8 @@
-const baseUrl = 'https://api.github.com/'
+const baseUrl = 'https://api.github.com'
 const myRepo = 'scirocco21/js-ajax-fetch-lab-v-000'
 
 function forkRepo() {
-  const learnRepo = 'learn-co-curriculum/javascript-fetch-lab'
+  const learnRepo = "learn-co-curriculum/javascript-fetch-lab"
   fetch(`${baseUrl}/repos/${learnRepo}/forks`, {
     method: 'post',
     headers: {

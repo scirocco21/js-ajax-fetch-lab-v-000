@@ -12,7 +12,7 @@ function forkRepo() {
 }
 
 function showForkedRepo(json) {
-  $('results').html(`<a href="${json.html_url}">${res.full_name}</a>`)
+  $('results').html(`<a href="${json.html_url}">${json.full_name}</a>`)
 }
 function getIssues() {
   fetch('https://api.github.com/repos/${repo}/issues')

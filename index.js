@@ -3,8 +3,8 @@ const myRepo = 'scirocco21/js-ajax-fetch-lab-v-000'
 
 function forkRepo() {
   const learnRepo = 'learn-co-curriculum/javascript-fetch-lab'
-  fetch('https://api.github.com/repos/${learnRepo}/forks', {
-    method: 'POST',
+  fetch(`${baseUrl}/repos/${learnRepo}/forks`, {
+    method: 'post',
     headers: {
       Authorization: `token ${getToken()}`
     }
